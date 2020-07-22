@@ -1,6 +1,3 @@
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Modal from "react-bootstrap/Modal";
 import React, { useState } from "react";
 
 function App() {
@@ -10,26 +7,20 @@ function App() {
   const handleShow = () => setShow(true);
 
   return (
-    <Container>
-      <Button variant="primary" onClick={handleShow}>
+    <>
+      <button variant="primary" onClick={handleShow}>
         Launch demo modal
-      </Button>
+      </button>
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+      <div style={{ display: show ? "block" : "none" }}>
+        <div>Woohoo, you're reading this text in a modal!</div>
+        <div>
+          <button variant="secondary" onClick={handleClose}>
             Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </Container>
+          </button>
+        </div>
+      </div>
+    </>
   );
 }
 
